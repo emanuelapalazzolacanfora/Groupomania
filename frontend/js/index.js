@@ -42,26 +42,18 @@ const listMessages = (messages) => {
 			let postBlockImage = document.createElement("div");
 			postBlockImage.setAttribute("class", "block-image");
 			postBlock.appendChild(postBlockImage);
-			let postLinkSinglPost = document.createElement("a");
-			postLinkSinglPost.setAttribute("class", "focus");
-			postLinkSinglPost.setAttribute("href", "single-post.html?id=" + messages[i].id);
-			postBlockImage.appendChild(postLinkSinglPost);
 			let postImage = document.createElement("img");  
 			postImage.setAttribute("src", 'http://localhost:3008/images/' + messages[i].attachement);
 			postImage.setAttribute("alt", "image du post"); 
 			postImage.setAttribute("class", "post-image");  
-			postLinkSinglPost.appendChild(postImage);
+			postBlockImage.appendChild(postImage);
 		}
 
 		// titre
 		if (messages[i].title) {
     		let posTitle = document.createElement("h2");
-			let postLinkTitle = document.createElement("a");
-			postLinkTitle.setAttribute("class", "focus a__title");
-			postLinkTitle.setAttribute("href", "single-post.html?id=" + messages[i].id);
 			postBlock.appendChild(posTitle);
-			posTitle.appendChild(postLinkTitle);
-			postLinkTitle.textContent = messages[i].title;
+			posTitle.textContent = messages[i].title;
 		}
 		
 		// message
