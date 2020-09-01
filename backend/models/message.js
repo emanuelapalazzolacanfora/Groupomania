@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
     var Message = sequelize.define('Message', {
         title: DataTypes.STRING,
-        content: DataTypes.STRING,
+        content: DataTypes.TEXT,
         attachement: DataTypes.STRING,
         likes: DataTypes.INTEGER,
     }, {});

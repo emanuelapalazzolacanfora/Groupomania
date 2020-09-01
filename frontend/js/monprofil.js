@@ -5,7 +5,7 @@ const headers = {
 };
 
 
-axios.get("http://localhost:3008/api/users/profil/", headers)
+axios.get("http://localhost:3008/api/users/profil", headers)
     .then((data) => {
 
         const firstName = document.querySelector('#firstName');
@@ -32,7 +32,7 @@ form.addEventListener('submit', function (e) {
         email
     }
 
-    axios.put("http://localhost:3008/api/users/profil/", data, headers).then(() => {
+    axios.put("http://localhost:3008/api/users/profil", data, headers).then(() => {
         alert('Profil modifié')
         window.location.href = 'index.html'
     })
@@ -41,7 +41,7 @@ form.addEventListener('submit', function (e) {
 
 const deleteAccount = document.getElementById('delete')
 deleteAccount.addEventListener('click', () => {
-    axios.delete("http://localhost:3008/api/users/profil/", headers).then(() => {
+    axios.delete("http://localhost:3008/api/users/profil", headers).then(() => {
         window.location.href = 'login.html'
     })
 })

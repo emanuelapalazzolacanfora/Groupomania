@@ -28,7 +28,7 @@ module.exports = {
                     content: content,
                     likes: 0,
                     UserId: userFound.id,
-                    attachment: req.file ? req.file.filename : null
+                    attachement: req.file ? req.file.filename : null
                 })
                .then((newMessage) => {
                         return res.status(201).json(newMessage);
@@ -52,14 +52,13 @@ module.exports = {
         /**
          * Récupération de l'utilisateur connecté afin de savoir si il est administrateur
          */
-        models.User.findByPk(userId, {attributes: ['id']}).then((user) => {
+        models.User.findByPk(userId).then((user) => {
             return models.Message.findAll({
                 order: [(order != null) ? order.split(':') : ['createdAt', 'DESC']],
                 include: [
                     {
                         model: models.User,
                         as: 'User',
-                        attributes: ['id', 'firstName', 'lastName', 'isAdmin'],
                     },
                     {
                         model: models.Like,
@@ -93,9 +92,10 @@ module.exports = {
 
     // Modifier un post
     updatePost: function (req, res) {
-        const id = req.params.id
-        const title = req.body.title
-        const content = req.body.content
+        const id = req.params.id;
+        const title = req.body.title;
+        const content = req.body.content;
+
         models.Message.findByPk(req.params.id).then(function (message) {
             if (message) {
                 message.update({
@@ -122,12 +122,12 @@ module.exports = {
         const id = req.params.id
 
         models.Message.findByPk(id).then((message) => {
-            const attachment = message.get('attachment');
+            const attachement = message.get('attachement');
             let response = null
-            if(!attachment){
+            if(!attachement){
                 response = message.destroy()
             } else {
-                const filePath = __dirname + '/../medias' + attachment
+                const filePath = __dirname + '/../images/' + attachement
                 response = fs.unlink(filePath)
                     .then(() => message.destroy())
             }

@@ -21,7 +21,7 @@ app.use((req, res, next) => {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
 
-  app.use('/medias', express.static(path.join(__dirname, 'medias')));
+  app.use('/images', express.static(path.join(__dirname, 'images')));
 
   app.use('/api/', userRoutes);
   app.use('/api/profil/', userRoutes);

@@ -102,7 +102,7 @@ module.exports = {
             where: {id: userId}
         }).then(function (user) {
             if (user) {
-                res.status(201).json(user);
+                res.status(200).json(user);
             } else {
                 res.status(404).json({'error': 'user not found'});
             }
@@ -124,8 +124,8 @@ module.exports = {
         models.User.findByPk(userId).then(function (user) {
             if (user) {
                 user.update({
-                    firstName,
-                    lastName,
+                    firstname: firstName,
+                    lastname: lastName,
                     email
                 })
                 .then(() => {

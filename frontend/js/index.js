@@ -34,20 +34,20 @@ const listMessages = (messages) => {
 		// user
 		let postUserName = document.createElement("span");
 		postUserName.setAttribute("class", "user-name");
-		postUserName.innerHTML = messages[i].User.firstName + ' ' + messages[i].User.lastName + '<span class="post-date"> - ' + moment(messages[i].createdAt).format('LLL')+ ' à poster : </span>';
+		postUserName.innerHTML = messages[i].User.firstname + ' ' + messages[i].User.lastname + '<span class="post-date"> - ' + moment(messages[i].createdAt).format('LLL')+ ' à poster : </span>';
 		postPoster.appendChild(postUserName);
 
 		// images
-        if (messages[i].attachment) {
+        if (messages[i].attachement) {
 			let postBlockImage = document.createElement("div");
-			postBlockImage.settAttribute("class", "block-image");
+			postBlockImage.setAttribute("class", "block-image");
 			postBlock.appendChild(postBlockImage);
 			let postLinkSinglPost = document.createElement("a");
-			postLinkSinglPost.settAttribute("class", "focus");
-			postLinkSinglPost.settAttribute("href", "single-post.html?id=" + messages[i].id);
+			postLinkSinglPost.setAttribute("class", "focus");
+			postLinkSinglPost.setAttribute("href", "single-post.html?id=" + messages[i].id);
 			postBlockImage.appendChild(postLinkSinglPost);
 			let postImage = document.createElement("img");  
-			postImage.setAttribute("src", '/images/' + messages[i].attachment);
+			postImage.setAttribute("src", 'http://localhost:3008/images/' + messages[i].attachement);
 			postImage.setAttribute("alt", "image du post"); 
 			postImage.setAttribute("class", "post-image");  
 			postLinkSinglPost.appendChild(postImage);
@@ -119,8 +119,8 @@ const listMessages = (messages) => {
 
         let likeOrDislike = messages[i].liked ? 'dislike' : 'like'
 
-		const btnLikes = document.querySelector('.fa-heart')
-        btnLikes.addEventListener('click', () => {
+		//const btnLikes = document.querySelector('.fa-heart')
+		postLike.addEventListener('click', () => {
             axios.post(`http://localhost:3008/api/messages/${messages[i].id}/action/${likeOrDislike}`, {}, headers).then((resp) => {
 				nbLikes = resp.data.Likes.length
 				postNbLikes.innerHTML = nbLikes
