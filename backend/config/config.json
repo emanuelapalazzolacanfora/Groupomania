@@ -1,23 +1,22 @@
 {
   "development": {
     "username": "root",
-    "password":  "root",
-    "database": "emanuela-p7",
+    "password":  "TXZk85OjjzjRqrOk",
+    "database": "groupomania",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "port": 8889
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password":  "TXZk85OjjzjRqrOk",
-    "database": "eploc",
+    "database": "groupomania",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password":  "TXZk85OjjzjRqrOk",
-    "database": "eploc",
+    "database": "groupomania",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }
