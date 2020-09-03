@@ -15,9 +15,9 @@ axios.get("http://localhost:3008/api/users/profil", headers)
         firstName.value = data.data.firstName;
         lastName.value = data.data.lastName;
         email.value = data.data.email;
-    }/*, (err) => {
+    }, (err) => {
         window.location.href = 'login.html'
-    }*/);
+    });
 
 // pour la modification d'un post
 form.addEventListener('submit', function (e) {

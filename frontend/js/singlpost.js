@@ -14,9 +14,9 @@ axios.get("http://localhost:3008/api/messages/" + idMessage, headers)
         const post = document.querySelector('#post')
         title.value = message.title
         post.value = message.content
-    }/*, (err) => {
+    },(err) => {
         window.location.href = 'login.html'
-    }*/);
+    });
 
 // pour la modification d'un post
 form.addEventListener('submit', function (e) {

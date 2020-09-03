@@ -21,7 +21,7 @@ if (localStorage.getItem("api-token")) {
                 window.location.href = 'index.html'
             })
     });
-} else { // si l'utilisateur n'est pas connecté il est renvoyé vers login.html
+} else { 
     window.location.href = 'login.html'
 }
 

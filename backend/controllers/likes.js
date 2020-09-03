@@ -1,7 +1,7 @@
 // Imports
-var models = require('../models');
-var jwtUtils = require('../utils/jwt.utils');
-var asyncLib = require('async');
+const models = require('../models');
+const jwtUtils = require('../utils/jwt.utils');
+
 
 // Constants
 const DISLIKED = 0;
@@ -11,10 +11,10 @@ const LIKED = 1;
 module.exports = {
     likePost: function (req, res) {
         // Getting auth header
-        var headerAuth = req.headers['authorization'];
-        var userId = jwtUtils.getUserId(headerAuth);
+        const headerAuth = req.headers['authorization'];
+        const userId = jwtUtils.getUserId(headerAuth);
         // Params
-        var messageId = parseInt(req.params.messageId);
+        const messageId = parseInt(req.params.messageId);
 
         if (messageId <= 0) {
             return res.status(400).json({'error': 'invalid parameters'});

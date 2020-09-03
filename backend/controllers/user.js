@@ -4,10 +4,6 @@ const jwtUtils = require('../utils/jwt.utils');
 const models = require('../models');
 
 
-// Constants
-const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-const PASSWORD_REGEX = /^(?=.*\d).{4,8}$/;
-
 // Routes
 module.exports = {
     register: function (req, res) {
@@ -24,7 +20,7 @@ module.exports = {
             .then(function (userFound) {
                 if (!userFound) {
                     bcrypt.hash(password, 5, function (err, bcryptedPassword) {
-                        var newUser = models.User.create({
+                        const newUser = models.User.create({
                             firstname,
                             lastname,
                             email: email,

@@ -30,12 +30,12 @@
       <form method="post" name="connexion">
         <div class="souspartie">
           <label for="email">Email *</label>
-          <input type="email" class="form-control focus" id="email" required
+          <input type="email" class="form-control focus" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required
           placeholder="Entrez une adresse mail valide" name="email">
         </div>
         <div class="souspartie">
           <label for="password">Mot de passe *</label>
-          <input type="password" class="form-control focus" id="password" required
+          <input type="password" class="form-control focus" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required
           placeholder="Renseignez votre mot de passe" name="password">
         </div>
         <button type="submit" id="connexion" class="focus">Se Connecter</button>
